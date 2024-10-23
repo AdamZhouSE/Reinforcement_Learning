@@ -53,6 +53,19 @@ def read_grid_mdp_problem_p2(file_path):
 
 
 def read_grid_mdp_problem_p3(file_path):
-    # Your p3 code here
-    problem = ''
+    with open(file_path, 'r') as f:
+        lines = f.readlines()
+        discount = float(lines[0].strip().split(' ')[1])
+        noise = float(lines[1].strip().split(' ')[1])
+        living_reward = float(lines[2].strip().split(' ')[1])
+        iterations = int(lines[3].strip().split(' ')[1])
+        grid = []
+        # read the grid
+        for line in lines[5:]:
+            if line.startswith('grid:'):
+                continue
+            # use filter to remove empty elements in the list
+            grid.append(list(filter(None, line.strip().split(' '))))
+    problem = {'discount': discount, 'noise': noise, 'living_reward': living_reward, 'iterations': iterations,
+               'grid': grid}
     return problem
