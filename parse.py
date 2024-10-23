@@ -29,7 +29,7 @@ def read_grid_mdp_problem_p2(file_path):
         lines = f.readlines()
         discount = float(lines[0].strip().split(' ')[1])
         noise = float(lines[1].strip().split(' ')[1])
-        living_reward = lines[2].strip().split(' ')[1]
+        living_reward = float(lines[2].strip().split(' ')[1])
         iterations = int(lines[3].strip().split(' ')[1])
         grid = []
         # the index of 'grid:' in lines
@@ -49,7 +49,6 @@ def read_grid_mdp_problem_p2(file_path):
             policy.append(list(filter(None, line.strip().split(' '))))
     problem = {'discount': discount, 'noise': noise, 'living_reward': living_reward, 'iterations': iterations,
                'grid': grid, 'policy': policy}
-    problem = ''
     return problem
 
 
