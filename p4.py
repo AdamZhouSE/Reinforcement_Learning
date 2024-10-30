@@ -7,6 +7,7 @@ from p3 import calculate_value_matrix, generate_init_policy
 Analysis:
 In this problem, we implement the Q-value temporal difference learning algorithm to find the optimal policy
 in the method train() in class QValueTDLearning. The search will end when the learning rate decays small enough(0.001).
+You can run this program by calling the run_multiple_times method and adjust any parameter to see the results.
 
 We compare the sum of values of the generated policy with the optimal policy by policy iteration to validate whether
 the policy is optimal. If the difference is smaller than the max difference, we consider the policy is optimal. 
